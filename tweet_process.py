@@ -8,7 +8,10 @@ def main():
     copyfile(original_file, temp_file)
     replace_dict = process_flags()
     replace_text(replace_dict)
-    file_test = "start " + temp_file
+    if os.name == 'nt':
+        file_test = "start " + temp_file
+    else:
+        file_test = "open " + temp_file
     os.system(file_test)
 
 def process_flags():
