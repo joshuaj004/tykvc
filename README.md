@@ -32,3 +32,5 @@ optional arguments:
   -oa --outeravatar [oa]
                         Replaces the avatar. In the form of a link.
 ```
+
+![key](https://github.com/joshuaj004/tykvc/blob/master/key.png)
