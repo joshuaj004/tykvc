@@ -1,13 +1,15 @@
 from shutil import copyfile
-import fileinput, argparse
+import fileinput, argparse, os
+
+original_file = "cropped_tweet.html"
+temp_file = "cropped_tweet_temp.html"
 
 def main():
-    print("Copying file")
-    copyfile("cropped_tweet.html", "cropped_tweet_temp.html")
-    print("replacing text")
+    copyfile(original_file, temp_file)
     replace_dict = process_flags()
     replace_text(replace_dict)
-    print("Done")
+    file_test = "start " + temp_file
+    os.system(file_test)
 
 def process_flags():
     parser = argparse.ArgumentParser(description='Create your own tweet based off of the iconic "Thank you Kanye, very cool!" tweet.')
@@ -46,18 +48,17 @@ def process_flags():
         "{{INNERTWEETCONTENTS}}": vars(args)['itc __innertweetcontents']
     }
 
-    print(vars(args))
     return replace_dict
 
 def replace_text(replace_dict):
-    f = open("cropped_tweet_temp.html", encoding="utf8")
+    f = open(temp_file, encoding="utf8")
     filedata = f.read()
     f.close()
 
     for key in replace_dict:
         filedata = filedata.replace(key, replace_dict[key])
 
-    f = open("cropped_tweet_temp.html", 'w', encoding="utf8")
+    f = open(temp_file, 'w', encoding="utf8")
     f.write(filedata)
     f.close()
 
