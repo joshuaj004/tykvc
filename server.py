@@ -18,6 +18,6 @@ def process_tweet():
     param_dict["itc"] = request.args.get("itc")
     for key in param_dict:
         if param_dict[key] != "":
-            param_string += " -" + key + " " + param_dict[key]
+            param_string += " -" + key + " " + '"' + param_dict[key] + '"'
     os.system("tweet_process.py " + param_string)
     return redirect('/')
