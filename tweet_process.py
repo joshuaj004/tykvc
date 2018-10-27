@@ -13,29 +13,29 @@ def main():
 
 def process_flags():
     parser = argparse.ArgumentParser(description='Create your own tweet based off of the iconic "Thank you Kanye, very cool!" tweet.')
-    parser.add_argument('-itn --innertweetname', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-itn --innertweetname', metavar='itn', type=str, nargs='?',
                     help='Replaces the inner tweet name',
                     default='ye')
 
-    parser.add_argument('-ith --innertweethandle', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-ith --innertweethandle', metavar='ith', type=str, nargs='?',
                     help='Replaces the inner tweet handle',
                     default='kanyewest')
 
-    parser.add_argument('-itc --innertweetcontents', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-itc --innertweetcontents', metavar='itc', type=str, nargs='?',
                     help='Replaces the inner tweet contents',
                     default='tiger blood or something')
 
-    parser.add_argument('-otn --outertweetname', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-otn --outertweetname', metavar='otn', type=str, nargs='?',
                     help='Replaces the outer tweet name',
                     default='Donald J. Trump')
 
-    parser.add_argument('-oth --outertweethandle', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-oth --outertweethandle', metavar='oth', type=str, nargs='?',
                     help='Replaces the outer tweet handle',
                     default='realDonaldTrump')
 
-    parser.add_argument('-otc --outertweetcontents', metavar='metavar', type=str, nargs='?',
+    parser.add_argument('-otc --outertweetcontents', metavar='otc', type=str, nargs='?',
                     help='Replaces the outer tweet contents',
-                    default='Thank you {{INNERTWEETNAME}}, very cool!"')
+                    default='Thank you {{INNERTWEETNAME}}, very cool!')
 
     args = parser.parse_args()
 
