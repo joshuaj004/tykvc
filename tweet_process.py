@@ -37,6 +37,10 @@ def process_flags():
                     help='Replaces the outer tweet contents',
                     default='Thank you {{INNERTWEETNAME}}, very cool!')
 
+    parser.add_argument('-oa --outeravatar', metavar='oa', type=str, nargs='?',
+                    help='Replaces the avatar. In the form of a link.',
+                    default='cropped_tweet_files/kUuht00m_bigger.jpg')
+
     args = parser.parse_args()
 
     replace_dict = {
@@ -45,7 +49,8 @@ def process_flags():
         "{{OUTERTWEETCONTENTS}}": vars(args)['otc __outertweetcontents'],
         "{{INNERTWEETNAME}}": vars(args)['itn __innertweetname'],
         "{{INNERTWEETHANDLE}}": vars(args)['ith __innertweethandle'],
-        "{{INNERTWEETCONTENTS}}": vars(args)['itc __innertweetcontents']
+        "{{INNERTWEETCONTENTS}}": vars(args)['itc __innertweetcontents'],
+        "{{OUTERAVATAR}}": vars(args)['oa __outeravatar']
     }
 
     return replace_dict
