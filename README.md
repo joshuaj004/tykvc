@@ -10,6 +10,7 @@ usage: tweet_process.py [-h] [-itn --innertweetname [itn]]
                         [-otn --outertweetname [otn]]
                         [-oth --outertweethandle [oth]]
                         [-otc --outertweetcontents [otc]]
+                        [-oa --outeravatar [oa]]
 
 Create your own tweet based off of the iconic "Thank you Kanye, very cool!"
 tweet.
@@ -28,4 +29,6 @@ optional arguments:
                         Replaces the outer tweet handle
   -otc --outertweetcontents [otc]
                         Replaces the outer tweet contents
+  -oa --outeravatar [oa]
+                        Replaces the avatar. In the form of a link.
 ```
