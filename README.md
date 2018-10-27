@@ -5,6 +5,19 @@ A repository to create your own tweet based off of the iconic "Thank you Kanye, 
 
 Can be used in one of two ways: Command line interface or Flask web page.
 
+## Flask Set up
+1. Install flask if you haven't already (`pip install flask`)
+2. Set the flask app
+* For osx/linux `export FLASK_APP=server.py`
+* For windows cmd `set FLASK_APP=server.py`
+* For powershell `$env:FLASK_APP = "server.py`
+3. `flask run`
+
+![ui](https://github.com/joshuaj004/tykvc/blob/master/webpage.png)
+
+## Command Line
+Pretty straight forward, you can even pass in a new image with the -oa flag. 
+
 ```
 usage: tweet_process.py [-h] [-itn --innertweetname [itn]]
                         [-ith --innertweethandle [ith]]
