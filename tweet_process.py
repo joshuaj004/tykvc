@@ -3,7 +3,6 @@ import fileinput, argparse, os
 
 original_file = "cropped_tweet.html"
 temp_file = "cropped_tweet_temp.html"
-# Test change, please ignore
 
 def main():
     copyfile(original_file, temp_file)
