@@ -3,6 +3,8 @@ A repository to create your own tweet based off of the iconic "Thank you Kanye, 
 
 ![tykvc](https://github.com/joshuaj004/tykvc/blob/master/readme.png)
 
+Can be used in one of two ways: Command line interface or Flask web page.
+
 ```
 usage: tweet_process.py [-h] [-itn --innertweetname [itn]]
                         [-ith --innertweethandle [ith]]
