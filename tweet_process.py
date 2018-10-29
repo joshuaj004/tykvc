@@ -1,13 +1,19 @@
 from shutil import copyfile
 import fileinput, argparse, os
 
-original_file = "cropped_tweet.html"
-temp_file = "cropped_tweet_temp.html"
-
 def main():
+    original_file = "cropped_tweet.html"
+    temp_file = "cropped_tweet_temp.html"
+    # must process flags first to see if running in server mode
+    replace_dict, server_mode = process_flags()
+    if server_mode:
+        temp_file = "templates/" + temp_file
     copyfile(original_file, temp_file)
-    replace_dict = process_flags()
-    replace_text(replace_dict)
+    replace_text(replace_dict, temp_file)
+    if not server_mode:
+        open_html(temp_file)    
+
+def open_html(temp_file):
     if os.name == 'nt':
         file_test = "start " + temp_file
     else:
@@ -40,12 +46,23 @@ def process_flags():
                     help='Replaces the outer tweet contents',
                     default='Thank you {{INNERTWEETNAME}}, very cool!')
 
+    parser.add_argument('-s --server', metavar='s', type=str, nargs='?',
+                    help='True when running on a Flask server',
+                    default='False')
+    
     parser.add_argument('-oa --outeravatar', metavar='oa', type=str, nargs='?',
                     help='Replaces the avatar. In the form of a link.',
-                    default='cropped_tweet_files/kUuht00m_bigger.jpg')
+                    default="cropped_tweet_files/kUuht00m_bigger.jpg")
 
     args = parser.parse_args()
 
+    # If running in server mode, we assume this is being served on a Flask server
+    # Hence the prepend of static/
+    server_mode = vars(args)['s __server']
+    server_mode = True if server_mode == "True" else False
+    if server_mode:
+        vars(args)['oa __outeravatar'] = "static/" + vars(args)['oa __outeravatar']
+    
     replace_dict = {
         "{{OUTERTWEETNAME}}": vars(args)['otn __outertweetname'],
         "{{OUTERTWEETHANDLE}}": vars(args)['oth __outertweethandle'],
@@ -56,9 +73,9 @@ def process_flags():
         "{{OUTERAVATAR}}": vars(args)['oa __outeravatar']
     }
 
-    return replace_dict
+    return replace_dict, server_mode
 
-def replace_text(replace_dict):
+def replace_text(replace_dict, temp_file):
     f = open(temp_file, encoding="utf8")
     filedata = f.read()
     f.close()

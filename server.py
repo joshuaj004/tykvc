@@ -19,5 +19,5 @@ def process_tweet():
     for key in param_dict:
         if param_dict[key] != "":
             param_string += " -" + key + " " + '"' + param_dict[key] + '"'
-    os.system("tweet_process.py " + param_string)
-    return redirect('/')
+    os.system("tweet_process.py " + param_string + " -s True")
+    return render_template("cropped_tweet_temp.html")
