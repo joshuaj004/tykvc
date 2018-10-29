@@ -3,8 +3,9 @@ import os
 app = Flask(__name__)
 
 @app.route('/')
-def base():
-    return render_template('index.html')
+def main():
+    return "Test"
+#     return render_template('index.html')
 
 @app.route('/tweet_process')
 def process_tweet():
