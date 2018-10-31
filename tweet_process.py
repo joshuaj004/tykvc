@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from shutil import copyfile
 import fileinput, argparse, os
 
