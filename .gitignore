@@ -4,4 +4,8 @@ screenshot.png
 *.pyc
 cropped_tweet_temp.html
 flask-app.zip
+env
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
 
