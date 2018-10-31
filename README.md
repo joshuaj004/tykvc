@@ -49,3 +49,8 @@ optional arguments:
 ```
 
 ![key](https://github.com/joshuaj004/tykvc/blob/master/key.png)
+
+## Credit
+Josh Johnson - Original POC (CLI & Local Flask)
+Joe Violago - Infarts/Infra opppss
+
