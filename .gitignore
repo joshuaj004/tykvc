@@ -3,3 +3,5 @@ chromedriver.exe
 screenshot.png
 *.pyc
 cropped_tweet_temp.html
+flask-app.zip
+
